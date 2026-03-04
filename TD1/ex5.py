@@ -40,3 +40,36 @@ def attente():
             f2.write(ligne2)
     f.close()
     f2.close()
+
+def statiques(dec):
+    f=open('concours.txt', 'r')
+    ctrDec=0
+    ctrGlb=0
+    for ligne in f:
+        if len(ligne) == 1:
+            break
+        ctrGlb=ctrGlb+1
+        l=ligne.split(";")
+        if l[4].strip() == dec:
+            ctrDec=ctrDec+1
+    f.close()
+    return (ctrDec/ctrGlb)*100
+
+def supprimer():
+    f=open('admis', 'r')
+    lines=f.readlines()
+    f.close()
+    f=open('admis', 'w')
+    for line in lines:
+        if len(line) ==1:
+            break
+        l=line.split(";")
+        if int(l[3].strip()) <30:
+            f.write(line)
+    f.close()    
+
+#test
+listeCondidats={"AA123456": ("EL AMRANI", "SARA", 22, "admis"),
+    "BB987654": ("BENALI", "YASSINE", 24, "refusé"),
+    "CC456789": ("TAHIRI", "AYA", 21, "ajourné")}
+
