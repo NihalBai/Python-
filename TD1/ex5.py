@@ -41,6 +41,7 @@ def attente():
     f.close()
     f2.close()
 
+
 def statiques(dec):
     f=open('concours.txt', 'r')
     ctrDec=0
